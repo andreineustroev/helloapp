@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag andreineustroev/helloapp:$(date +%s) --tag andreineustroev/helloapp:latest
+    - name: Push Docker image
+      run: docker push andreineustroev/helloapp:$(date +%s) andreineustroev/helloapp:latest
+    
