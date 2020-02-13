@@ -10,6 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: List directory
+      run: ls -lh
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag andreineustroev/helloapp:$(date +%s) --tag andreineustroev/helloapp:latest
     - name: Push Docker image
