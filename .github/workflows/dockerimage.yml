@@ -13,8 +13,7 @@ jobs:
     - name: List directory
       run: ls -lh
     - name: Build the Docker image
-      run: cd helloapp && docker build . --file Dockerfile --tag andreineustroev/helloapp:$(date +%s) \
-          --tag andreineustroev/helloapp:latest
+      run: cd helloapp && docker build . --file Dockerfile --tag andreineustroev/helloapp:$(date +%s)
     - name: Push Docker image
-      run: docker push andreineustroev/helloapp:$(date +%s) andreineustroev/helloapp:latest
+      run: docker push andreineustroev/helloapp:$(date +%s)
     
